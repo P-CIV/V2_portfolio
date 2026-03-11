@@ -144,7 +144,7 @@ export const portfolioData: PortfolioData = {
         en: "A fully interactive portfolio with a bilingual interface, smooth animations and dark/light theme toggle.",
         fr: "Un portfolio entièrement interactif, qui dispose d'une interface bilingue, d'animations fluides et d'un basculement de thème sombre/clair."
       },
-      technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vite"],
+      technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
       link: "https://pascalkambou.vercel.app",
       featured: true,
       github: "https://github.com/P-CIV",
@@ -228,7 +228,7 @@ export const portfolioData: PortfolioData = {
           en: "Tools & DevOps",
           fr: "Outils & DevOps"
         },
-        skills: ["Git", "Vite", "CI/CD", "Figma", "AWS"]
+        skills: ["Git", "CI/CD", "Figma", "AWS", "AZURE"]
       }
     ]
   },
@@ -293,9 +293,42 @@ export const portfolioData: PortfolioData = {
   ],
 
   certifications: [
+    {
+  id: 11,
+  title: "Python Essentials 2",
+  issuer: "Cisco Networking Academy",
+  date: "2026",
+  description: {
+    en: "Intermediate Python programming covering advanced concepts such as object-oriented programming, modules and packages, file handling, exception handling, and working with more complex data structures.",
+    fr: "Programmation Python intermédiaire couvrant des concepts avancés tels que la programmation orientée objet, les modules et packages, la gestion des fichiers, la gestion des exceptions et l'utilisation de structures de données plus complexes."
+  },
+  skills: [
+    "Programmation orientée objet (OOP)",
+    "Modules et packages Python",
+    "Gestion des fichiers",
+    "Gestion des exceptions",
+    "Structures de données avancées",
+    "Résolution de problèmes"
+  ],
+  image: "/certifications/cert_pythonEssentials2.jpg"
+  },
+
 
     {
       id: 1,
+      title: "AWS Cloud Explained for Beginners",
+      issuer: "ûdemy",
+      date: "2026",
+      description: {
+        en: "Introduction to Cloud Computing and Amazon Web Services (AWS), covering core cloud concepts, basic architecture, security principles, and hands-on practice with key AWS services.",
+        fr: "Introduction au Cloud Computing et à Amazon Web Services (AWS), couvrant les concepts fondamentaux du cloud, l’architecture de base, les principes de sécurité et la pratique des services clés d’AWS."
+      },
+      skills: ["Amazon Web Services","Amazon EC2", "Amazon S3","AWS IAM", "Virtual Private Cloud (VPC)","Déploiement d’instances"],
+      image: "/certifications/cert_aws_deb.jpg"
+     },
+
+    {
+      id: 2,
       title: "Capacity Building Certificate – IT Foundation",
       issuer: "Center for Excellence in Digital and Technology (CEDITECH)",
       date: "2026",
@@ -307,7 +340,7 @@ export const portfolioData: PortfolioData = {
       image: "/certifications/cert_bootcamp.jpg"
      },
     {
-      id: 2,
+      id: 3,
       title: "GENIE Program Completion Certificate",
       issuer: "DigiFemmes Côte d'Ivoire, KOICA & GGI, Ministry of Digital Transition (Côte d'Ivoire)",
       date: "2025",
@@ -318,8 +351,9 @@ export const portfolioData: PortfolioData = {
       skills: ["Kotlin","Swift", "UX/UI", "Green-tech"],
       image: "/certifications/cert-GENIE.PNG"
     },
+    
     {
-      id: 3,
+      id: 5,
       title: "Speaking and Presenting: Conversation Starters",
       issuer: "University of Michigan via Coursera",
       date: "2025",
@@ -331,7 +365,7 @@ export const portfolioData: PortfolioData = {
       image: "/certifications/cert-speaking-presenting.jpg"
     },
     {
-      id: 4,
+      id: 6,
       title: "Creativity, Innovation and Transformation",
       issuer: "The Pennsylvania State University via Coursera",
       date: "2025",
@@ -342,30 +376,7 @@ export const portfolioData: PortfolioData = {
       skills: ["Creativity", "Innovation", "Transformation", "Strategic Thinking", "Problem Solving"],
       image: "/certifications/cert-creativity-innovation.jpg"
     },
-    {
-      id: 5,
-      title: "Google Slides Certification",
-      issuer: "Google Cloud via Coursera",
-      date: "2025",
-      description: {
-        en: "Completed an online course authorized by Google Cloud through Coursera, mastering Google Slides for professional presentations and collaborative design.",
-        fr: "Cours en ligne sans crédit, autorisé par Google Cloud et proposé par l'intermédiaire de Coursera. Formation sur la maîtrise de Google Slides pour les présentations professionnelles et la conception collaborative."
-      },
-      skills: ["Google Slides", "Presentation Design", "Collaboration"],
-      image: "/certifications/cert-googleslides.jpg"
-    },
-    {
-      id: 6,
-      title: "Google Drive Certification",
-      issuer: "Google Cloud via Coursera",
-      date: "2026",
-      description: {
-        en: "Completed an online course authorized by Google Cloud through Coursera, specializing in cloud storage management and collaborative document organization.",
-        fr: "Cours en ligne sans crédit, autorisé par Google Cloud et proposé par l'intermédiaire de Coursera. Formation spécialisée en gestion du stockage cloud et organisation collaborative des documents."
-      },
-      skills: ["Google Drive", "Cloud Storage", "Document Management"],
-      image: "/certifications/cert-googledrive.jpg"
-    },
+   
     {
       id: 7,
       title: "Essential React.js Training",
