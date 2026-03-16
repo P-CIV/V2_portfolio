@@ -88,6 +88,13 @@ export default function Skills() {
       'Material Design': 'bg-blue-100 text-blue-700 border-blue-200',
       'react-qr-code': 'bg-indigo-100 text-indigo-700 border-indigo-200',
       'Green-tech': 'bg-green-100 text-green-700 border-green-200',
+      'Streamlit': 'bg-red-100 text-red-700 border-red-200 dark:bg-red-600/10 dark:text-red-400 dark:border-red-600/30',
+      'PyTorch': 'bg-orange-100 text-orange-700 border-orange-200 dark:bg-orange-600/10 dark:text-orange-400 dark:border-orange-600/30',
+      'CamemBERT': 'bg-purple-100 text-purple-700 border-purple-200 dark:bg-purple-600/10 dark:text-purple-400 dark:border-purple-600/30',
+      'Hugging Face': 'bg-yellow-100 text-yellow-700 border-yellow-200 dark:bg-yellow-600/10 dark:text-yellow-400 dark:border-yellow-600/30',
+      'Scikit-learn': 'bg-orange-100 text-orange-700 border-orange-200 dark:bg-orange-600/10 dark:text-orange-400 dark:border-orange-600/30',
+      'Mistral-7B': 'bg-indigo-100 text-indigo-700 border-indigo-200 dark:bg-indigo-600/10 dark:text-indigo-400 dark:border-indigo-600/30',
+      'OpenAI SDK': 'bg-green-100 text-green-700 border-green-200 dark:bg-green-600/10 dark:text-green-400 dark:border-green-600/30',
     };
     return techColors[tech] || 'bg-gray-100 text-gray-700 border-gray-200';
   };

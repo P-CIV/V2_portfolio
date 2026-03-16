@@ -138,6 +138,31 @@ export const portfolioData: PortfolioData = {
   ],
 
   projects: [
+
+   {
+     name: "Sentiment Analysis — AlloFilm",
+     description: {
+      en: "Sentiment analysis model for French movie reviews using CamemBERT. Classifies reviews as positive or negative.",
+      fr: "Modèle d'analyse de sentiments pour des critiques de films en français avec CamemBERT. Classe les avis en positif ou négatif."
+     },
+      technologies: ["Python", "PyTorch", "CamemBERT", "Hugging Face", "Streamlit"],
+      link:"https://analyse-sentiment-projet.streamlit.app/",
+      github: "https://github.com/P-CIV/sentiment_analysis",
+      image: "/projects/sentiment-analysis.png",
+      featured: true
+    },
+    {
+      name: "TATI Makeup Chatbot",
+      description: {
+       en: "An intelligent assistant for a beauty salon, powered by Mistral-7B via Hugging Face. Features a elegant chat interface with quick suggestions, real-time AI responses and seamless integration with the salon's knowledge base.",
+       fr: "Un assistant pour un salon de beauté, propulsé par Mistral-7B via Hugging Face. Dispose d'une interface de chat élégante avec suggestions rapides, réponses IA en temps réel et intégration de la base de connaissance du salon."
+     },
+     technologies: ["Python", "Streamlit", "Mistral-7B", "Hugging Face", "OpenAI SDK"],
+     link: "https://tatianabot.streamlit.app",
+     featured: true,
+     github: "https://github.com/P-CIV/Chatbot_tatiana",
+     image: "/projects/tati-makeup-chatbot.png"
+    },
     {
       name: "Portfolio Website",
       description: {
