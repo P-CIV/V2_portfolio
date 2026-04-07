@@ -6,6 +6,7 @@ export type ThemeContextType = {
   theme: Theme;
   toggleTheme: () => void;
   setAutoTheme: () => void;
+  cycleTheme: () => void;
   isAutoTheme: boolean;
 };
 

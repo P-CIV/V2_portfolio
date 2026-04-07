@@ -78,8 +78,27 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     setTheme(getSystemTheme());
   };
 
+  const cycleTheme = (): void => {
+    if (isAutoTheme) {
+      // Auto → Light
+      setTheme("light");
+      setStoredTheme("light");
+      setIsAutoTheme(false);
+    } else if (theme === "light") {
+      // Light → Dark
+      setTheme("dark");
+      setStoredTheme("dark");
+      setIsAutoTheme(false);
+    } else {
+      // Dark → Auto
+      removeStoredTheme();
+      setIsAutoTheme(true);
+      setTheme(getSystemTheme());
+    }
+  };
+
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, setAutoTheme, isAutoTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, setAutoTheme, cycleTheme, isAutoTheme }}>
       {children}
     </ThemeContext.Provider>
   );

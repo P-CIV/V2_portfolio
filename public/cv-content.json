@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "contact": "📧 Email: pascalkambou200@gmail.com\n📍 Adresse: Abidjan, Côte d'Ivoire\n🔗 GitHub: https://github.com/P-CIV\n🔗 LinkedIn: https://www.linkedin.com/in/pascal-kambou-37ab182b6\n🔗 Twitter: https://twitter.com/PascalKambou",
+    "experience": "Actuellement étudiant en Développement d'Applications et E-Services à l'UVCI avec une expérience en développement web et mobile. Travail sur des projets innovants basés sur l'Intelligence Artificielle et les technologies durables.",
+    "skills": "**Frontend**: React, TypeScript, JavaScript, Tailwind CSS, HTML5, CSS3\n**Backend**: Node.js, Express, Python, SQL, REST API\n**Mobile**: React Native, Kotlin, Firebase\n**Outils & DevOps**: Git, CI/CD, Figma, AWS, AZURE\n**IA/ML**: Python, PyTorch, TensorFlow, Hugging Face, Mistral-7B",
+    "education": "🎓 **Licence DAS** - Université Virtuelle de Côte d'Ivoire (UVCI) - 2023 à Présent\nDéveloppement d'Applications et E-Services\n\n🎓 **Formation IA** - CEDITECH-CI - En cours\nIntelligence Artificielle, Machine Learning, NLP avec TensorFlow et PyTorch\n\n🎓 **Formation UX/UI & Mobile** - DIGIFemmes (GENIE) - Terminée\nUX/UI Design, Mobile Android/iOS, Entrepreneuriat Durable",
+    "projects": "• **Sentiment Analysis — AlloFilm**: Modèle d'analyse de sentiments pour critiques de films français avec CamemBERT\n• **TATI Makeup Chatbot**: Assistant IA pour salon de beauté avec Mistral-7B via Hugging Face\n• **Portfolio Website**: Portfolio interactif bilingue avec animations Framer Motion\n• **Ecocycle**: Application mobile et web pour gestion du recyclage avec code QR\n• **À Chez-Nous Pays**: Showcase de la gastronomie africaine\n• **Gestionnaire de Tâches**: Application de gestion des tâches avec rappels email"
+  }
+}

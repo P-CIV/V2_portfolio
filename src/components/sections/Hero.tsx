@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Github, Linkedin, Mail, MapPin } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Mail, MapPin, Code } from 'lucide-react';
 import { useLanguage } from '../../hooks/useLanguage';
 import { portfolioData } from '../../data/portfolio';
 import { Button } from '../ui/button';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -11,6 +11,43 @@ export default function Hero() {
 
   const [navHeight, setNavHeight] = useState(80);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [displayedRole, setDisplayedRole] = useState('');
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const typingRef = useRef<NodeJS.Timeout>();
+
+  const roles = [
+    'Full Stack Developer',
+    'AI Innovator',
+    'Problem Solver',
+    'Code Enthusiast'
+  ];
+
+  useEffect(() => {
+    const role = roles[roleIndex];
+    
+    if (!isDeleting && charIndex < role.length) {
+      typingRef.current = setTimeout(() => {
+        setDisplayedRole(role.substring(0, charIndex + 1));
+        setCharIndex(charIndex + 1);
+      }, 100);
+    } else if (isDeleting && charIndex > 0) {
+      typingRef.current = setTimeout(() => {
+        setDisplayedRole(role.substring(0, charIndex - 1));
+        setCharIndex(charIndex - 1);
+      }, 80);
+    } else if (!isDeleting && charIndex === role.length) {
+      typingRef.current = setTimeout(() => {
+        setIsDeleting(true);
+      }, 1500);
+    } else if (isDeleting && charIndex === 0) {
+      setRoleIndex((prev) => (prev + 1) % roles.length);
+      setIsDeleting(false);
+    }
+
+    return () => clearTimeout(typingRef.current);
+  }, [charIndex, isDeleting, roleIndex]);
 
   useEffect(() => {
     const nav = document.querySelector('nav');
@@ -103,12 +140,33 @@ export default function Hero() {
               </span>
             </motion.h1>
 
-            <motion.p
-              variants={itemVariants}
-              className="text-lg sm:text-xl text-muted-foreground mb-6 leading-relaxed"
+            <motion.div variants={itemVariants} className="mb-8">
+              <div className="flex items-center gap-2 text-lg sm:text-xl text-muted-foreground mb-4">
+                <span className="inline-block">{displayedRole}</span>
+                <span className="inline-block w-1 h-6 bg-primary animate-pulse"></span>
+              </div>
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                {t(personal.tagline)}
+              </p>
+            </motion.div>
+
+            {/* Code Mockup */}
+            <motion.div 
+              variants={itemVariants} 
+              className="mb-8 p-4 rounded-lg bg-slate-900 dark:bg-slate-950 text-slate-100 font-mono text-sm max-w-lg mx-auto lg:mx-0 shadow-lg border border-slate-700 overflow-x-auto"
             >
-              {t(personal.tagline)}
-            </motion.p>
+              <div className="flex items-center gap-2 mb-3 text-slate-400 text-xs pb-3 border-b border-slate-700">
+                <Code size={14} />
+                <span>portfolio.ts</span>
+              </div>
+              <div className="space-y-1 text-xs sm:text-sm">
+                <p><span className="text-pink-400">const</span> <span className="text-cyan-300">developer</span> = {'{'}</p>
+                <p className="ml-4"><span className="text-yellow-300">name</span>: <span className="text-green-400">"{personal.name}"</span>,</p>
+                <p className="ml-4"><span className="text-yellow-300">role</span>: <span className="text-green-400">"{displayedRole}"</span>,</p>
+                <p className="ml-4"><span className="text-yellow-300">skills</span>: <span className="text-blue-400">['React', 'TypeScript', 'Tailwind']</span></p>
+                <p>{'}'}</p>
+              </div>
+            </motion.div>
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
               <a href="#projects">
@@ -142,8 +200,8 @@ export default function Hero() {
               className="relative w-80 h-96 mx-auto rounded-2xl overflow-hidden shadow-2xl"
             >
               <img
-                src="/photo-profil.JPG"
-                alt="Pascal Kambou"
+                src={personal.photo || "/placeholder.svg"}
+                alt={personal.name}
                 className="w-full h-full object-cover object-top"
               />
             </motion.div>

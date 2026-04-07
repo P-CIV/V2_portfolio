@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:backend": "cd server && uvicorn server:app --reload --port 8000",
+    "dev:all": "npm run dev & npm run dev:backend",
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",

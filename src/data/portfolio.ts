@@ -106,7 +106,7 @@ export interface PortfolioData {
 export const portfolioData: PortfolioData = {
   personal: {
     name: "Pascal Kambou",
-    photo: "/pascal-kambou.png",
+    photo: "/photo-profil.JPG",
     title: {
       en: "Full-Stack Developer",
       fr: "Développeur Full-Stack"

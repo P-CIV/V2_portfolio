@@ -12,6 +12,7 @@ import Skills from './components/sections/Skills';
 import Contact from './components/sections/Contact';
 import AllProjects from './pages/AllProjects';
 import AllCertifications from './pages/AllCertifications';
+import ChatBot from './components/ChatBot'; 
 import './index.css';
 
 function App() {
@@ -106,8 +107,14 @@ function App() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="min-h-screen"
+              className="min-h-screen relative"
             >
+              {/* Background decorations */}
+              <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
+                <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl opacity-40"></div>
+                <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl opacity-40"></div>
+              </div>
+
               <Navbar />
               <main>
                 {currentPage === 'all-projects' ? (
@@ -126,6 +133,7 @@ function App() {
                   </>
                 )}
               </main>
+              <ChatBot />
             </motion.div>
           )}
         </AnimatePresence>
