@@ -319,24 +319,24 @@ export const portfolioData: PortfolioData = {
 
   certifications: [
     {
-  id: 11,
-  title: "Python Essentials 2",
-  issuer: "Cisco Networking Academy",
-  date: "2026",
-  description: {
-    en: "Intermediate Python programming covering advanced concepts such as object-oriented programming, modules and packages, file handling, exception handling, and working with more complex data structures.",
-    fr: "Programmation Python intermédiaire couvrant des concepts avancés tels que la programmation orientée objet, les modules et packages, la gestion des fichiers, la gestion des exceptions et l'utilisation de structures de données plus complexes."
-  },
-  skills: [
-    "Programmation orientée objet (OOP)",
-    "Modules et packages Python",
-    "Gestion des fichiers",
-    "Gestion des exceptions",
-    "Structures de données avancées",
-    "Résolution de problèmes"
-  ],
-  image: "/certifications/cert_pythonEssentials2.jpg"
-  },
+      id: 11,
+      title: "Python Essentials 2",
+      issuer: "Cisco Networking Academy",
+      date: "2026",
+      description: {
+        en: "Intermediate Python programming covering advanced concepts such as object-oriented programming, modules and packages, file handling, exception handling, and working with more complex data structures.",
+        fr: "Programmation Python intermédiaire couvrant des concepts avancés tels que la programmation orientée objet, les modules et packages, la gestion des fichiers, la gestion des exceptions et l'utilisation de structures de données plus complexes."
+      },
+      skills: [
+        "Programmation orientée objet (OOP)",
+        "Modules et packages Python",
+        "Gestion des fichiers",
+        "Gestion des exceptions",
+        "Structures de données avancées",
+        "Résolution de problèmes"
+      ],
+      image: "/certifications/cert_pythonEssentials2.jpg"
+    },
 
 
     {
