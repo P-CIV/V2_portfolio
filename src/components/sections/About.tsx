@@ -120,7 +120,7 @@ export default function About() {
                       <Brain className="w-16 h-16 text-primary" />
                     </motion.div>
                     <p className="font-display text-2xl font-bold">
-                      {t({ en: 'AI Engineer & Full-Stack', fr: 'IA & Développeur Web-Mobile' })}
+                      {t({ en: 'AI specialist & Full-Stack', fr: 'IA & Développeur Web-Mobile' })}
                     </p>
                   </div>
                 </div>

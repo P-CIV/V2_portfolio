@@ -15,7 +15,7 @@ export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const typingRef = useRef<NodeJS.Timeout>();
+  const typingRef = useRef<number | null>(null);
 
   const roles = [
     'Full Stack Developer',
@@ -28,17 +28,17 @@ export default function Hero() {
     const role = roles[roleIndex];
     
     if (!isDeleting && charIndex < role.length) {
-      typingRef.current = setTimeout(() => {
+      typingRef.current = window.setTimeout(() => {
         setDisplayedRole(role.substring(0, charIndex + 1));
         setCharIndex(charIndex + 1);
       }, 100);
     } else if (isDeleting && charIndex > 0) {
-      typingRef.current = setTimeout(() => {
+      typingRef.current = window.setTimeout(() => {
         setDisplayedRole(role.substring(0, charIndex - 1));
         setCharIndex(charIndex - 1);
       }, 80);
     } else if (!isDeleting && charIndex === role.length) {
-      typingRef.current = setTimeout(() => {
+      typingRef.current = window.setTimeout(() => {
         setIsDeleting(true);
       }, 1500);
     } else if (isDeleting && charIndex === 0) {
@@ -46,7 +46,11 @@ export default function Hero() {
       setIsDeleting(false);
     }
 
-    return () => clearTimeout(typingRef.current);
+    return () => {
+      if (typingRef.current !== null) {
+        window.clearTimeout(typingRef.current);
+      }
+    };
   }, [charIndex, isDeleting, roleIndex]);
 
   useEffect(() => {
@@ -126,7 +130,7 @@ export default function Hero() {
               variants={itemVariants}
               className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
             >
-              {t({ en: 'Hi,', fr: 'Salut' })}{' '}
+              {t({ en: 'Hi,', fr: 'Bonjour' })}{' '}
               <motion.span
                 animate={{ rotate: [0, 14, -8, 14, 0] }}
                 transition={{ duration: 0.6, repeat: Infinity, repeatDelay: 3 }}
@@ -163,7 +167,7 @@ export default function Hero() {
                 <p><span className="text-pink-400">const</span> <span className="text-cyan-300">developer</span> = {'{'}</p>
                 <p className="ml-4"><span className="text-yellow-300">name</span>: <span className="text-green-400">"{personal.name}"</span>,</p>
                 <p className="ml-4"><span className="text-yellow-300">role</span>: <span className="text-green-400">"{displayedRole}"</span>,</p>
-                <p className="ml-4"><span className="text-yellow-300">skills</span>: <span className="text-blue-400">['React', 'TypeScript', 'Tailwind']</span></p>
+                <p className="ml-4"><span className="text-yellow-300">skills</span>: <span className="text-blue-400">['AI specialist', 'Full-Stack Development', 'Cloud']</span></p>
                 <p>{'}'}</p>
               </div>
             </motion.div>

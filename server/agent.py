@@ -1,4 +1,5 @@
 import os
+import re
 from dotenv import load_dotenv
 from groq import Groq
 from portfolio_data import construire_contexte_portfolio
@@ -61,7 +62,13 @@ CONSIGNES STRICTES - TRÈS IMPORTANT
    - Gras: **texte** (gras OK)
    - Mais JAMAIS de [liens](url) - texte + url simplement
 
-8. Réponds UNIQUEMENT à la question posée
+8. Réponds UNIQUEMENT à la question posée et ne sort jamais du cadre de ce portfolio
+
+9. GARDE-FOU DE PÉRIMÈTRE - RÈGLE ABSOLUE:
+   - Si la demande concerne autre chose que Pascal Kambou, son portfolio, ses projets, ses compétences, ses formations, ses certifications, ses contacts ou ses expériences, réponds toujours :
+     "Je ne peux parler que de Pascal Kambou, de son portfolio et de ses informations professionnelles."
+   - N'essaie jamais de répondre à des sujets hors périmètre.
+   - Si l'information n'est pas présente dans le contexte, dis : "Je ne dispose pas de cette info."
 """
 
 
@@ -70,6 +77,30 @@ CONSIGNES STRICTES - TRÈS IMPORTANT
 def creer_session() -> list:
     """Crée une nouvelle session de conversation (historique vide)."""
     return []
+
+
+def _normaliser_texte(texte: str) -> str:
+    """Normalise un texte pour faciliter le contrôle du périmètre."""
+    return re.sub(r"[^a-zà-ÿ0-9\s]", " ", texte.lower())
+
+
+def _est_dans_perimetre(message: str) -> bool:
+    """Vérifie si une demande est bien liée au portfolio de Pascal Kambou."""
+    texte = _normaliser_texte(message)
+    if not texte.strip():
+        return False
+
+    mots_cles = [
+        "pascal", "kambou", "portfolio", "projet", "projets", "competence",
+        "compétence", "competences", "compétences", "formation", "formations",
+        "experience", "expérience", "certificat", "certification", "certifications",
+        "contact", "email", "linkedin", "github", "cv", "skill", "skills",
+        "technologie", "technologies", "travail", "réalisation", "realisation",
+        "presentation", "présentation", "bio", "parle", "parler", "montre",
+        "explique", "qui", "quoi", "comment", "ou", "quand"
+    ]
+
+    return any(mot in texte for mot in mots_cles)
 
 
 def envoyer_message(historique: list, message_utilisateur: str) -> tuple[str, list]:
@@ -88,6 +119,14 @@ def envoyer_message(historique: list, message_utilisateur: str) -> tuple[str, li
         {"role": m.get("role", "user"), "content": m.get("content", "")}
         for m in historique
     ]
+
+    if not _est_dans_perimetre(message_utilisateur):
+        reponse = "Je ne peux parler que de Pascal Kambou, de son portfolio et de ses informations professionnelles."
+        nouvel_historique = historique_clean + [
+            {"role": "user", "content": message_utilisateur},
+            {"role": "assistant", "content": reponse},
+        ]
+        return reponse, nouvel_historique
     
     # Préparer les messages pour l'API Groq 
     messages = [

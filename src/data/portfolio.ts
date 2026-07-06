@@ -128,8 +128,8 @@ export const portfolioData: PortfolioData = {
   },
   
   about: {
-    en: "I'm a Full-Stack developer and passionate learner based in Abidjan, Côte d'Ivoire. Currently a student in Application Development and E-Services at UVCI, I'm dedicated to building innovative web and mobile solutions. I'm driven by a genuine interest in Artificial Intelligence and how it can solve real-world problems and create meaningful impact for businesses and communities.",
-    fr: "Je suis un développeur Full-Stack et apprenant passionné basé à Abidjan, Côte d'Ivoire. Actuellement étudiant en Développement d'Applications et E-Services à l'UVCI, je suis dédié à la création de solutions web et mobile innovantes. Je suis motivé par un intérêt sincère pour l'Intelligence Artificielle et comment elle peut résoudre des problèmes concrets et créer un impact significatif pour les entreprises et les communautés."
+    en: "I'm a full-stack developer and artificial intelligence specialist based in Abidjan, Ivory Coast. Currently in the final stages of my degree in Application Development and E-Services at UVCI, I develop modern web applications and artificial intelligence solutions tailored to the needs of businesses. My goal is to design innovative products that address real-world challenges and create value for users.",
+    fr: "Je suis développeur Full-Stack et spécialiste en Intelligence Artificielle basé à Abidjan, Côte d'Ivoire. Actuellement en fin de cycle en Développement d'Applications et E-Services à l'UVCI, je développe des applications web modernes et des solutions d'intelligence artificielle adaptées aux besoins des entreprises. Mon objectif est de concevoir des produits innovants qui répondent à des problématiques concrètes et créent de la valeur pour les utilisateurs."
   },
 
   experiences: [
@@ -139,8 +139,32 @@ export const portfolioData: PortfolioData = {
 
   projects: [
 
+    {
+     name: "EduHeures",
+     description: {
+      en: "A web application developed as part of a final-year project to automate the management of overtime hours for UVCI faculty members. It includes an AI assistant based on an agent-based RAG that answers questions and provides information about university services.",
+      fr: "Application web développée dans le cadre d'un projet de fin d'études pour automatiser la gestion des heures complémentaires des enseignants de l'UVCI. Elle intègre un assistant IA basé sur un RAG agentique qui répond aux questions et les services de l'université."
+     },
+      technologies: ["Python", "Laravel", "MySQL", "LangChain", "Qdrant", "FastAPI", "TAVILY", "SERPER", "Azure OpenAI"],
+      link:"https://eduheure.up.railway.app/",
+      github: "https://github.com/P-CIV/EduHeures-PTC",
+      image: "/projects/eduheures-uvci.png",
+      featured: true
+    },
+    {
+     name: "Kova",
+     description: {
+      en: "KOVA is an AI assistant based on RAG that recommends services from catalogs. It combines semantic search and Azure OpenAI to provide accurate, context-aware responses.",
+      fr: "KOVA est un assistant IA basé sur le RAG qui recommande des services à partir de catalogues PDF. Il combine la recherche sémantique et Azure OpenAI pour fournir des réponses précises et adaptées au contexte."
+     },
+      technologies: ["Python", "FastAPI", "Azure OpenAI", "LangChain", "Qdrant"],
+      link:"https://kovaassistant.netlify.app/",
+      github: "https://github.com/P-CIV/rag_assistant",
+      image: "/projects/kova-rag.png",
+      featured: true
+    },
    {
-     name: "Sentiment Analysis — AlloFilm",
+     name: "Sentiment Analysis AlloFilm",
      description: {
       en: "Sentiment analysis model for French movie reviews using CamemBERT. Classifies reviews as positive or negative.",
       fr: "Modèle d'analyse de sentiments pour des critiques de films en français avec CamemBERT. Classe les avis en positif ou négatif."
@@ -250,6 +274,13 @@ export const portfolioData: PortfolioData = {
       },
       {
         name: {
+          en: "Artificial Intelligence",
+          fr: "Intelligence Artificielle"
+        },
+        skills: [ "AI Engineering", "Machine Learning", "Deep Learning", "NLP", "Generative AI"]
+      },
+      {
+        name: {
           en: "Tools & DevOps",
           fr: "Outils & DevOps"
         },
@@ -264,7 +295,7 @@ export const portfolioData: PortfolioData = {
       fr: "Travaillons Ensemble"
     },
     description: {
-      en: "I'm always interested in hearing about new projects and opportunities. Feel free to reach out if you want to collaborate or discuss how I can help bring your ideas to life.",
+      en: "I'm a Full-Stack Developer and Artificial Intelligence Specialist based in Abidjan, Côte d'Ivoire. Currently completing my degree in Application Development and E-Services at UVCI, I build modern web applications and AI solutions that help businesses solve real-world challenges. My goal is to create innovative, reliable and impactful digital products.",
       fr: "Je suis toujours intéressé par de nouveaux projets et opportunités. N'hésitez pas à me contacter si vous souhaitez collaborer ou discuter de comment je peux aider à concrétiser vos idées."
     }
   },
@@ -278,7 +309,7 @@ export const portfolioData: PortfolioData = {
       school: "Université Virtuelle de Côte d'Ivoire (UVCI)",
       period: {
         en: "2023 - Present",
-        fr: "2023 - Présent"
+        fr: "2023 - En cours"
       },
       description: {
         en: "Currently pursuing final year of DAS training with in-depth focus on web and mobile development, service integration, cloud computing and digital project management.",
@@ -292,12 +323,12 @@ export const portfolioData: PortfolioData = {
       },
       school: "CEDITECH-CI – Centre d'Excellence Digital et Technologies",
       period: {
-        en: "In Progress",
-        fr: "En cours"
+        en: "Completed : Nov 2025 - Jun 2026",
+        fr: "Terminée : Nov 2025 - Juin 2026"
       },
       description: {
-        en: "Hands-on AI training focused on machine learning, natural language processing (NLP), and model development with TensorFlow and PyTorch. Immersive project-based approach with focus on innovation and professional development.",
-        fr: "Formation pratique en Intelligence Artificielle, axée sur l'apprentissage automatique, le traitement du langage naturel NLP et le développement de modèles avec TensorFlow et PyTorch. Approche immersive orientée projets, innovation et mise en situation professionnelle."
+        en: "Certification course in Artificial Intelligence, focusing on machine learning, deep learning, natural language processing (NLP), large language models (LLMs), prompt engineering, and model development with TensorFlow and PyTorch. An immersive approach centered on projects, innovation, and real-world professional scenarios.",
+        fr: "Formation certifiante en Intelligence Artificielle, axée sur l'apprentissage automatique, le traitement du langage naturel NLP, les grands modèles de langage (LLM), le prompt engineering et le développement de modèles avec TensorFlow et PyTorch. Approche immersive orientée projets, innovation et mise en situation professionnelle."
       }
     },
     {
@@ -307,8 +338,8 @@ export const portfolioData: PortfolioData = {
       },
       school: "DIGIFemmes – Centre de formation du programme GENIE",
       period: {
-        en: "Completed",
-        fr: "Terminée"
+        en: "Completed : Aug 2025 - Nov 2025",
+        fr: "Terminée : Août 2025 - Nov 2025"
       },
       description: {
         en: "Training in design and development of digital solutions, focused on UX/UI design, Android/iOS mobile technologies, with an approach oriented towards innovation, sustainability and social impact.",
@@ -453,4 +484,4 @@ export const portfolioData: PortfolioData = {
   ]
 };
 
-export type Language = 'en' | 'fr';
+export type Language = 'en' | 'fr'; 

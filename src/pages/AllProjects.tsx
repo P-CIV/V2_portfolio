@@ -16,6 +16,13 @@ function isValidUrl(urlString: string | undefined): urlString is string {
 
 function getTechBadgeColor(tech: string): string {
   const techColors: Record<string, string> = {
+    'Laravel': 'bg-red-100 text-red-700 border-red-200',
+    'LangChain': 'bg-lime-100 text-lime-700 border-lime-200',
+    'Qdrant': 'bg-fuchsia-100 text-fuchsia-700 border-fuchsia-200',
+    'FastAPI': 'bg-emerald-100 text-emerald-700 border-emerald-200',
+    'TAVILY': 'bg-sky-100 text-sky-700 border-sky-200',
+    'SERPER': 'bg-amber-100 text-amber-700 border-amber-200',
+    'Azure OpenAI': 'bg-cyan-100 text-cyan-700 border-cyan-200',
     'React': 'bg-blue-100 text-blue-700 border-blue-200 dark:bg-blue-600/10 dark:text-blue-400 dark:border-blue-600/30',
     'React Native': 'bg-blue-100 text-blue-700 border-blue-200 dark:bg-blue-600/10 dark:text-blue-400 dark:border-blue-600/30',
     'Vue.js': 'bg-emerald-100 text-emerald-700 border-emerald-200 dark:bg-emerald-600/10 dark:text-emerald-400 dark:border-emerald-600/30',

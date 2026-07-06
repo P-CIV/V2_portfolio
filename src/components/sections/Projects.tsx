@@ -74,6 +74,13 @@ function getTechBadgeColor(tech: string): string {
     'Scikit-learn': 'bg-orange-100 text-orange-700 border-orange-200 dark:bg-orange-600/10 dark:text-orange-400 dark:border-orange-600/30',
     'Mistral-7B': 'bg-indigo-100 text-indigo-700 border-indigo-200 dark:bg-indigo-600/10 dark:text-indigo-400 dark:border-indigo-600/30',
     'OpenAI SDK': 'bg-green-100 text-green-700 border-green-200 dark:bg-green-600/10 dark:text-green-400 dark:border-green-600/30',
+    'Laravel': 'bg-red-100 text-red-700 border-red-200 dark:bg-red-600/10 dark:text-red-400 dark:border-red-600/30',
+    'LangChain': 'bg-lime-100 text-lime-700 border-lime-200 dark:bg-lime-600/10 dark:text-lime-400 dark:border-lime-600/30',
+    'Qdrant': 'bg-fuchsia-100 text-fuchsia-700 border-fuchsia-200 dark:bg-fuchsia-600/10 dark:text-fuchsia-400 dark:border-fuchsia-600/30',
+    'FastAPI': 'bg-emerald-100 text-emerald-700 border-emerald-200 dark:bg-emerald-600/10 dark:text-emerald-400 dark:border-emerald-600/30',
+    'TAVILY': 'bg-sky-100 text-sky-700 border-sky-200 dark:bg-sky-600/10 dark:text-sky-400 dark:border-sky-600/30',
+    'SERPER': 'bg-amber-100 text-amber-700 border-amber-200 dark:bg-amber-600/10 dark:text-amber-400 dark:border-amber-600/30',
+    'Azure OpenAI': 'bg-cyan-100 text-cyan-700 border-cyan-200 dark:bg-cyan-600/10 dark:text-cyan-400 dark:border-cyan-600/30',
   };
   return techColors[tech] || 'bg-gray-100 text-gray-700 border-gray-200 dark:bg-gray-600/10 dark:text-gray-400 dark:border-gray-600/30';
 }
