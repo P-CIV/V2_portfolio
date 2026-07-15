@@ -117,19 +117,18 @@ export const portfolioData: PortfolioData = {
     },
     email: "pascalkambou200@gmail.com",
     location: {
-      en: "Abidjan, Côte d'Ivoire",
+      en: "Abidjan, Ivory Coast",
       fr: "Abidjan, Côte d'Ivoire"
     },
     social: {
       github: "https://github.com/P-CIV",
       linkedin: "https://www.linkedin.com/in/pascal-kambou-37ab182b6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-      twitter: "https://twitter.com/PascalKambou"
     }
   },
   
   about: {
-    en: "I'm a full-stack developer and artificial intelligence specialist based in Abidjan, Ivory Coast. Currently in the final stages of my degree in Application Development and E-Services at UVCI, I develop modern web applications and artificial intelligence solutions tailored to the needs of businesses. My goal is to design innovative products that address real-world challenges and create value for users.",
-    fr: "Je suis développeur Full-Stack et spécialiste en Intelligence Artificielle basé à Abidjan, Côte d'Ivoire. Actuellement en fin de cycle en Développement d'Applications et E-Services à l'UVCI, je développe des applications web modernes et des solutions d'intelligence artificielle adaptées aux besoins des entreprises. Mon objectif est de concevoir des produits innovants qui répondent à des problématiques concrètes et créent de la valeur pour les utilisateurs."
+    en: "I'm a Full-Stack Developer and Artificial Intelligence Specialist based in Abidjan, Ivory Coast. I hold a Bachelor's degree in Computer Science, with a specialization in Application Development and E-Services from the Virtual University of Ivory Coast (UVCI). I design and develop modern web applications and AI-powered solutions tailored to business needs. My goal is to build innovative products that solve real-world challenges and create meaningful value for users.",
+    fr: "Je suis développeur Full-Stack et spécialiste en Intelligence Artificielle basé à Abidjan, Côte d'Ivoire. Titulaire d'une Licence en Informatique, avec une spécialisation en Développement d'Applications et E-Services, obtenue à l'Université Virtuelle de Côte d'Ivoire (UVCI), je conçois des applications web modernes ainsi que des solutions d'intelligence artificielle adaptées aux besoins des entreprises. Mon objectif est de développer des produits innovants qui répondent à des problématiques concrètes et créent de la valeur pour les utilisateurs."
   },
 
   experiences: [
@@ -303,17 +302,17 @@ export const portfolioData: PortfolioData = {
   formations: [
     {
       title: {
-        en: "Bachelor's Degree - DAS (Application and E-Service Development)",
-        fr: "Licence 3 DAS (Développement d'Applications et E-Services)"
+        en: "Bachelor's Degree in Computer Science",
+        fr: "Licence en Informatique et Sciences du Numérique"
       },
       school: "Université Virtuelle de Côte d'Ivoire (UVCI)",
       period: {
-        en: "2023 - Present",
-        fr: "2023 - En cours"
+        en: "Terminée : 2023 - 2026",
+        fr: "Terminée: 2023 - 2026"
       },
       description: {
-        en: "Currently pursuing final year of DAS training with in-depth focus on web and mobile development, service integration, cloud computing and digital project management.",
-        fr: "Actuellement en cours de formation DAS, avec un approfondissement en développement web, mobile, intégration de services, cloud computing et gestion de projet numérique."
+        en: "Bachelor's degree in Computer Science with a specialization in Application Development and E-Services. The program focuses on software analysis, system modeling, and the design and development of web and mobile applications using modern technologies and programming tools.",
+        fr: "Licence en Informatique et Sciences du Numérique avec une spécialisation en Développement d'Applications et E-Services. Cette formation porte sur l'analyse, la modélisation des systèmes, la conception et le développement d'applications web et mobiles à l'aide des technologies et outils de programmation modernes."
       }
     },
     {
