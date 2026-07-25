@@ -348,6 +348,27 @@ export const portfolioData: PortfolioData = {
   ],
 
   certifications: [
+
+
+     {
+      id: 12,
+      title: "AI Engineer for Data Scientists Associate",
+      issuer: "DataCamp",
+      date: "2026",
+      description: {
+        en: "Associate-level certification validating practical skills in designing, building, and deploying AI solutions for data science workflows. ",
+        fr: "Certification de niveau Associate validant les compétences pratiques en conception, développement et déploiement de solutions d'intelligence artificielle pour les projets de data science."
+      },
+      skills: [
+        "Machine Learning",
+        "IA générative",
+        "Grands modèles de langage (LLMs)",
+        "Prompt Engineering",
+        "Évaluation des modèles",
+        "IA responsable"
+      ],
+      image: "/certifications/cert_ai_scientist.jpg"
+    }, 
     {
       id: 11,
       title: "Python Essentials 2",
