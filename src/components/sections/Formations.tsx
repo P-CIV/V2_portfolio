@@ -27,10 +27,10 @@ export default function Formations() {
   };
 
   return (
-    <section id="formations" className="py-20 md:py-32 relative overflow-hidden">
+    <section id="formations" className="py-16 md:py-24 relative overflow-hidden">
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 right-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 left-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/4 right-10 w-96 h-96 bg-[#6DD5C4]/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-10 w-96 h-96 bg-[#DFF6F0]/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -47,14 +47,14 @@ export default function Formations() {
             </span>
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
               {t({ en: 'My Learning', fr: 'Mon Parcours' })}{' '}
-              <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#DFF6F0] via-[#6DD5C4] to-[#6DD5C4] bg-clip-text text-transparent">
                 {t({ en: 'Path', fr: 'Académique' })}
               </span>
             </h2>
           </motion.div>
 
           <div className="relative">
-            <div className="absolute left-0 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-purple-500 via-blue-500 to-transparent"></div>
+            <div className="absolute left-0 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-[#6DD5C4] via-[#DFF6F0] to-transparent"></div>
 
             <div className="space-y-12">
               {formations.map((formation, index) => (
@@ -111,7 +111,7 @@ export default function Formations() {
                     </div>
 
                     <motion.div
-                      className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-600 to-blue-600"
+                      className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#DFF6F0] via-[#6DD5C4] to-[#6DD5C4]"
                       initial={{ scaleX: 0 }}
                       whileHover={{ scaleX: 1 }}
                       transition={{ duration: 0.3 }}

@@ -2,10 +2,13 @@ import { Award, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../../hooks/useLanguage';
 import { portfolioData } from '../../data/portfolio';
 import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Certifications() {
   const { t } = useLanguage();
   const { certifications } = portfolioData;
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [rangeState, setRangeState] = useState<'entry' | 'exit'>('exit');
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -26,8 +29,30 @@ export default function Certifications() {
     },
   };
 
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setRangeState(entry.isIntersecting ? 'entry' : 'exit');
+      },
+      {
+        root: null,
+        rootMargin: '-20% 0px -20% 0px',
+        threshold: [0.1, 0.2],
+      }
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
+  const animationClass = rangeState === 'entry' ? 'animate-range-entry' : 'animate-range-exit';
+
   return (
-    <section id="certifications" className="py-20 md:py-32 relative overflow-hidden">
+    <section ref={sectionRef} id="certifications" className={`py-16 md:py-24 relative overflow-hidden ${animationClass}`}>
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/4 right-10 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 left-10 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl"></div>
@@ -47,7 +72,7 @@ export default function Certifications() {
             </span>
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
               {t({ en: 'My', fr: 'Mes' })}{' '}
-              <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#DFF6F0] via-[#6DD5C4] to-[#6DD5C4] bg-clip-text text-transparent">
                 {t({ en: 'Certifications', fr: 'Certifications' })}
               </span>
             </h2>
@@ -116,7 +141,7 @@ export default function Certifications() {
 
                 
                 <motion.div
-                  className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-600 to-blue-600"
+                  className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#DFF6F0] via-[#6DD5C4] to-[#6DD5C4]"
                   initial={{ scaleX: 0 }}
                   whileHover={{ scaleX: 1 }}
                   transition={{ duration: 0.3 }}
@@ -129,7 +154,7 @@ export default function Certifications() {
           <motion.div variants={itemVariants} className="text-center">
             <a
               href="/all-certifications"
-              className="inline-flex items-center gap-2 px-8 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105 group"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-xl bg-gradient-to-r from-[#DFF6F0] via-[#6DD5C4] to-[#6DD5C4] text-[#0E2625] font-semibold hover:shadow-[0_12px_30px_rgba(109,213,196,0.35)] transition-all duration-300 hover:scale-105 group"
             >
               {t({ en: 'View All Certifications', fr: 'Voir Tous mes Certificats' })}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

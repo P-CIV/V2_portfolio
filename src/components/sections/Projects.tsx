@@ -204,11 +204,11 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-20 md:py-32 relative overflow-hidden">
+    <section id="projects" className="py-16 md:py-24 relative overflow-hidden">
       {/* La décoration pour l'Arrière-plan */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 right-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 left-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/4 right-10 w-96 h-96 bg-[#6DD5C4]/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 left-10 w-96 h-96 bg-[#DFF6F0]/5 rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -225,7 +225,7 @@ export default function Projects() {
             </span>
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
               {t({ en: 'Featured', fr: 'Projets' })}{' '}
-              <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#DFF6F0] via-[#6DD5C4] to-[#6DD5C4] bg-clip-text text-transparent">
                 {t({ en: 'Projects', fr: 'Vedettes' })}
               </span>
             </h2>
@@ -253,7 +253,7 @@ export default function Projects() {
           <motion.div variants={itemVariants} className="text-center mt-16">
             <a
               href="/all-projects"
-              className="inline-flex items-center gap-2 px-8 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105 group"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-xl bg-gradient-to-r from-[#DFF6F0] via-[#6DD5C4] to-[#6DD5C4] text-[#0E2625] font-semibold hover:shadow-[0_12px_30px_rgba(109,213,196,0.35)] transition-all duration-300 hover:scale-105 group"
             >
               {t({ en: 'View All Projects', fr: 'Voir Tous mes Projets' })}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

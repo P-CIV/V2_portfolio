@@ -77,7 +77,7 @@ function App() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2, duration: 0.6 }}
                 >
-                  <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-[#6DD5C4] via-[#DFF6F0] to-[#6DD5C4] bg-clip-text text-transparent">
                     PK
                   </span>
                 </motion.div>
@@ -111,8 +111,8 @@ function App() {
             >
               {/* Background decorations */}
               <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
-                <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl opacity-40"></div>
-                <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl opacity-40"></div>
+                <div className="absolute top-0 left-0 w-96 h-96 bg-[#6DD5C4]/10 rounded-full blur-3xl opacity-90"></div>
+                <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#DFF6F0]/80 rounded-full blur-3xl opacity-80"></div>
               </div>
 
               <Navbar />

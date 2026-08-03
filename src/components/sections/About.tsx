@@ -27,7 +27,7 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="py-20 md:py-32 relative overflow-hidden">
+    <section id="about" className="py-16 md:py-24 relative overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
@@ -46,7 +46,7 @@ export default function About() {
             </span>
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
               {t({ en: 'Creative Developer &', fr: 'Développeur Créatif &' })}{' '}
-              <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#DFF6F0] via-[#6DD5C4] to-[#6DD5C4] bg-clip-text text-transparent">
                 {t({ en: 'Problem Solver', fr: 'Résolveur de Problèmes' })}
               </span>
             </h2>
@@ -103,10 +103,10 @@ export default function About() {
                   transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
                   className="absolute inset-0"
                 >
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-purple-500 rounded-full"></div>
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full"></div>
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 bg-pink-500 rounded-full"></div>
-                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 bg-cyan-500 rounded-full"></div>
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-[#6DD5C4] rounded-full"></div>
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-[#DFF6F0] rounded-full"></div>
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 bg-[#8FE8D9] rounded-full"></div>
+                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 bg-[#BDEFE6] rounded-full"></div>
                 </motion.div>
 
                 {/* Center content */}
@@ -115,7 +115,7 @@ export default function About() {
                     <motion.div
                       animate={{ scale: [1, 1.1, 1] }}
                       transition={{ duration: 3, repeat: Infinity }}
-                      className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center mb-4"
+                      className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-[#DFF6F0]/80 to-[#6DD5C4]/30 flex items-center justify-center mb-4"
                     >
                       <Brain className="w-16 h-16 text-primary" />
                     </motion.div>

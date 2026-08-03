@@ -5,24 +5,23 @@ import { portfolioData } from '../../data/portfolio';
 import { Button } from '../ui/button';
 import { useEffect, useState, useRef } from 'react';
 
+const roles = [
+  'Full Stack Developer',
+  'AI Innovator',
+  'Problem Solver',
+  'Code Enthusiast'
+];
+
 export default function Hero() {
   const { t } = useLanguage();
   const { personal } = portfolioData;
 
-  const [navHeight, setNavHeight] = useState(80);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [displayedRole, setDisplayedRole] = useState('');
   const [roleIndex, setRoleIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const typingRef = useRef<number | null>(null);
-
-  const roles = [
-    'Full Stack Developer',
-    'AI Innovator',
-    'Problem Solver',
-    'Code Enthusiast'
-  ];
 
   useEffect(() => {
     const role = roles[roleIndex];
@@ -54,11 +53,6 @@ export default function Hero() {
   }, [charIndex, isDeleting, roleIndex]);
 
   useEffect(() => {
-    const nav = document.querySelector('nav');
-    if (nav) setNavHeight(nav.offsetHeight);
-  }, []);
-
-  useEffect(() => {
     const handleMove = (e: MouseEvent) =>
       setMousePos({ x: e.clientX, y: e.clientY });
 
@@ -86,8 +80,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-32 sm:pt-24"
-      style={{ paddingTop: navHeight + 20 }}
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24 sm:pt-20"
     >
       <div
         className="pointer-events-none absolute inset-0 z-0 opacity-40 transition-all duration-300"
@@ -139,7 +132,7 @@ export default function Hero() {
                 👋
               </motion.span>{' '}
               {t({ en: 'I\'m', fr: 'je suis' })}{' '}
-              <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#DFF6F0] via-[#6DD5C4] to-[#6DD5C4] bg-clip-text text-transparent">
                 {personal.name}
               </span>
             </motion.h1>

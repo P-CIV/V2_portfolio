@@ -4,28 +4,28 @@
 
 @layer base {
   :root {
-    --color-background: #ffffff;
-    --color-foreground: #0a0a0f;
-    
-    --color-card: #ffffff;
-    --color-card-foreground: #0a0a0f;
-    
-    --color-primary: #1a1a2e;
-    --color-primary-foreground: #fafafa;
-    
-    --color-secondary: #f1f5f9;
-    --color-secondary-foreground: #1a1a2e;
-    
-    --color-muted: #f1f5f9;
-    --color-muted-foreground: #64748b;
-    
-    --color-accent: #f1f5f9;
-    --color-accent-foreground: #1a1a2e;
-    
-    --color-border: #e2e8f0;
-    --color-input: #e2e8f0;
-    --color-ring: #1a1a2e;
-    
+    --color-background: #f6fffd;
+    --color-foreground: #0d1f1d;
+
+    --color-card: rgba(255, 255, 255, 0.72);
+    --color-card-foreground: #0d1f1d;
+
+    --color-primary: #6dd5c4;
+    --color-primary-foreground: #052a29;
+
+    --color-secondary: #dff6f0;
+    --color-secondary-foreground: #0d1f1d;
+
+    --color-muted: #edf9f6;
+    --color-muted-foreground: #365d5a;
+
+    --color-accent: #dff6f0;
+    --color-accent-foreground: #0d1f1d;
+
+    --color-border: rgba(109, 213, 196, 0.22);
+    --color-input: rgba(109, 213, 196, 0.12);
+    --color-ring: #6dd5c4;
+
     --radius: 0.5rem;
   }
 
@@ -34,27 +34,27 @@
   }
 
   .dark {
-    --color-background: #0a0a0f;
-    --color-foreground: #fafafa;
-    
-    --color-card: #0a0a0f;
-    --color-card-foreground: #fafafa;
-    
-    --color-primary: #fafafa;
-    --color-primary-foreground: #1a1a2e;
-    
-    --color-secondary: #1e293b;
-    --color-secondary-foreground: #fafafa;
-    
-    --color-muted: #1e293b;
-    --color-muted-foreground: #94a3b8;
-    
-    --color-accent: #1e293b;
-    --color-accent-foreground: #fafafa;
-    
-    --color-border: #2d3748;
-    --color-input: #2d3748;
-    --color-ring: #fafafa;
+    --color-background: #071918;
+    --color-foreground: #edfff9;
+
+    --color-card: rgba(11, 25, 24, 0.8);
+    --color-card-foreground: #edfff9;
+
+    --color-primary: #8fe8d9;
+    --color-primary-foreground: #062929;
+
+    --color-secondary: #123c39;
+    --color-secondary-foreground: #edfff9;
+
+    --color-muted: #0d2f2c;
+    --color-muted-foreground: #d5f6ef;
+
+    --color-accent: #dff6f0;
+    --color-accent-foreground: #071918;
+
+    --color-border: rgba(143, 232, 217, 0.2);
+    --color-input: rgba(143, 232, 217, 0.14);
+    --color-ring: #dff6f0;
   }
 
   * {
@@ -62,22 +62,34 @@
   }
 
   body {
-    background-color: var(--color-background);
+    background:
+      radial-gradient(circle at top left, rgba(109, 213, 196, 0.18), transparent 30%),
+      radial-gradient(circle at bottom right, rgba(223, 246, 240, 0.75), transparent 34%),
+      var(--color-background);
     color: var(--color-foreground);
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  .dark body {
+    background:
+      radial-gradient(circle at top left, rgba(109, 213, 196, 0.12), transparent 28%),
+      radial-gradient(circle at bottom right, rgba(223, 246, 240, 0.08), transparent 34%),
+      var(--color-background);
   }
 }
 
 @layer components {
   .glass-card {
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(14px);
     border: 1px solid;
     border-color: var(--color-border);
-    background-color: rgb(255 255 255 / 0.4);
+    background: rgba(255, 255, 255, 0.58);
+    box-shadow: 0 12px 30px rgba(19, 40, 38, 0.08);
   }
 
   .dark .glass-card {
-    background-color: rgb(10 10 15 / 0.4);
+    background: rgba(11, 25, 24, 0.64);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
   }
 
   .hover-lift {
@@ -93,7 +105,7 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-image: linear-gradient(to right, var(--color-primary), var(--color-accent));
+    background-image: linear-gradient(to right, #6dd5c4 0%, #dff6f0 100%);
   }
 
   .section-title {
@@ -225,6 +237,16 @@
 
   .fade-in-up {
     animation: fade-in-up 0.8s ease-out;
+  }
+
+  .animate-range-entry {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+
+  .animate-range-exit {
+    opacity: 0.35;
+    transform: translateY(24px);
+    transition: opacity 0.45s ease-out, transform 0.45s ease-out;
   }
 }
 

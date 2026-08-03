@@ -17,17 +17,16 @@ GROQ_MODEL = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")
 # Client Groq
 client = Groq(api_key=GROQ_API_KEY)
 
-# Contexte du portfolio 
-CONTEXTE_PORTFOLIO = construire_contexte_portfolio()
-
-# Prompt système
-SYSTEM_PROMPT = f"""Tu es l'assistant personnel du portfolio de Pascal Kambou.
+def get_system_prompt() -> str:
+    """Construit le prompt système avec les données les plus récentes du portfolio."""
+    contexte_portfolio = construire_contexte_portfolio()
+    return f"""Tu es l'assistant personnel du portfolio de Pascal Kambou.
 
 Ton rôle est d'aider les visiteurs à mieux connaître Pascal : ses projets, compétences, formations et expériences.
 
 Voici toutes les données du portfolio :
 
-{CONTEXTE_PORTFOLIO}
+{contexte_portfolio}
 
 
 CONSIGNES STRICTES - TRÈS IMPORTANT
@@ -128,9 +127,10 @@ def envoyer_message(historique: list, message_utilisateur: str) -> tuple[str, li
         ]
         return reponse, nouvel_historique
     
-    # Préparer les messages pour l'API Groq 
+    # Préparer les messages pour l'API Groq avec le contexte le plus récent
+    system_prompt = get_system_prompt()
     messages = [
-        {"role": "system", "content": SYSTEM_PROMPT}
+        {"role": "system", "content": system_prompt}
     ] + historique_clean + [
         {"role": "user", "content": message_utilisateur}
     ]

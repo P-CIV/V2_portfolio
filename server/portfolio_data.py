@@ -1,3 +1,13 @@
+import json
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+PORTFOLIO_JSON_CANDIDATES = [
+    BASE_DIR / "public" / "cv-content.json",
+    BASE_DIR / "server" / "portfolio_data.json",
+    BASE_DIR / "server" / "portfolio.json",
+]
+
 PORTFOLIO_INFO = {
     "identite": {
         "nom": "Pascal Kambou",
@@ -353,7 +363,52 @@ PORTFOLIO_INFO = {
 }
 
 
+def _charger_source_portfolio_json() -> dict | None:
+    """Lit la source JSON du portfolio sur le disque, en priorité la version publique."""
+    for chemin in PORTFOLIO_JSON_CANDIDATES:
+        if not chemin.exists():
+            continue
+        try:
+            with open(chemin, "r", encoding="utf-8") as fichier:
+                donnees = json.load(fichier)
+            if isinstance(donnees, dict):
+                return donnees
+        except Exception:
+            continue
+    return None
+
+
+def _construire_contexte_depuis_json(donnees: dict) -> str:
+    """Crée un contexte de chatbot à partir du JSON public du portfolio."""
+    sections = donnees.get("sections", {})
+    contact = sections.get("contact", "")
+    experience = sections.get("experience", "")
+    skills = sections.get("skills", "")
+    education = sections.get("education", "")
+    projects = sections.get("projects", "")
+
+    contexte = "PORTFOLIO DE PASCAL KAMBOU\n\n"
+    contexte += "INFORMATIONS DE CONTACT\n"
+    contexte += f"{contact}\n\n" if contact else ""
+    contexte += "EXPERIENCE\n"
+    contexte += f"{experience}\n\n" if experience else ""
+    contexte += "COMPÉTENCES\n"
+    contexte += f"{skills}\n\n" if skills else ""
+    contexte += "FORMATIONS\n"
+    contexte += f"{education}\n\n" if education else ""
+    contexte += "PROJETS\n"
+    contexte += f"{projects}\n\n" if projects else ""
+    return contexte.strip()
+
+
 def construire_contexte_portfolio() -> str:
+    """Retourne un contexte frais, relu depuis la source la plus récente du portfolio."""
+    source_json = _charger_source_portfolio_json()
+    if source_json is not None:
+        contexte = _construire_contexte_depuis_json(source_json)
+        if contexte:
+            return contexte
+
     i = PORTFOLIO_INFO
     ident = i["identite"]
 

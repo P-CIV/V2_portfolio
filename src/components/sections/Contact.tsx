@@ -33,24 +33,24 @@ export default function Contact() {
       label: { en: 'Email', fr: 'Email' },
       value: personal.email,
       href: `mailto:${personal.email}`,
-      color: 'text-blue-600',
-      bg: 'bg-blue-500/10',
+      color: 'text-[#0E2625] dark:text-[#EAFBF7]',
+      bg: 'bg-[#DFF6F0]/80 dark:bg-[#0F2B2A]/30',
     },
     {
       icon: Github,
       label: { en: 'GitHub', fr: 'GitHub' },
       value: 'P-CIV',
       href: personal.social.github || '#',
-      color: 'text-purple-600',
-      bg: 'bg-purple-500/10',
+      color: 'text-[#0E2625] dark:text-[#EAFBF7]',
+      bg: 'bg-[#DFF6F0]/80 dark:bg-[#0F2B2A]/30',
     },
     {
       icon: Linkedin,
       label: { en: 'LinkedIn', fr: 'LinkedIn' },
       value: 'Pascal Kambou',
       href: personal.social.linkedin || '#',
-      color: 'text-cyan-600',
-      bg: 'bg-cyan-500/10',
+      color: 'text-[#0E2625] dark:text-[#EAFBF7]',
+      bg: 'bg-[#DFF6F0]/80 dark:bg-[#0F2B2A]/30',
     },
   ];
 
@@ -59,21 +59,21 @@ export default function Contact() {
       icon: Github,
       label: 'GitHub',
       href: personal.social.github,
-      color: 'hover:text-purple-600',
+      color: 'hover:text-[#0E2625] dark:hover:text-[#EAFBF7]',
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
       href: personal.social.linkedin,
-      color: 'hover:text-blue-600',
+      color: 'hover:text-[#0E2625] dark:hover:text-[#EAFBF7]',
     },
   ].filter(link => link.href);
 
   return (
-    <section id="contact" className="py-20 md:py-32 relative overflow-hidden bg-muted/30">
+    <section id="contact" className="py-16 md:py-24 relative overflow-hidden bg-muted/30">
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#6DD5C4]/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#DFF6F0]/80 rounded-full blur-3xl" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -107,16 +107,16 @@ export default function Contact() {
                   href={method.href}
                   target={method.href.startsWith('http') ? '_blank' : undefined}
                   rel={method.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="block p-8 rounded-2xl border-2 border-border hover:border-primary/50 bg-background transition-all duration-300 hover:shadow-xl h-full"
+                  className="block p-8 rounded-2xl border-2 border-border hover:border-primary/50 bg-background transition-all duration-300 hover:shadow-xl h-full min-w-0"
                 >
-                  <div className="flex flex-col h-full">
+                  <div className="flex flex-col h-full min-w-0">
                     <div className={`w-14 h-14 rounded-xl ${method.bg} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform mb-4`}>
                       <method.icon className={`w-7 h-7 ${method.color}`} />
                     </div>
                     <h3 className="font-display text-xl font-bold mb-2">
                       {t(method.label)}
                     </h3>
-                    <p className="text-muted-foreground group-hover:text-foreground transition-colors mb-4 flex-grow">
+                    <p className="text-muted-foreground group-hover:text-foreground transition-colors mb-4 flex-grow min-w-0 break-words whitespace-normal">
                       {method.value}
                     </p>
                     <div className="flex items-center text-primary opacity-0 group-hover:opacity-100 transition-opacity">
@@ -133,7 +133,7 @@ export default function Contact() {
 
           <motion.div
             variants={itemVariants}
-            className="relative overflow-hidden rounded-3xl border-2 border-primary/20 bg-gradient-to-br from-purple-500/10 via-background to-blue-500/10 p-8 md:p-12 text-center mb-12"
+            className="relative overflow-hidden rounded-3xl border-2 border-primary/20 bg-gradient-to-br from-[#DFF6F0]/80 via-background to-[#6DD5C4]/10 p-8 md:p-12 text-center mb-12"
           >
             <div className="relative z-10">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6">
@@ -159,8 +159,8 @@ export default function Contact() {
               </Button>
             </div>
 
-            <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl -z-0"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl -z-0"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#6DD5C4]/20 rounded-full blur-3xl -z-0"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#DFF6F0]/60 rounded-full blur-3xl -z-0"></div>
           </motion.div>
 
           {socialLinks.length > 0 && (

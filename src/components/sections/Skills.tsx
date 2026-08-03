@@ -31,8 +31,8 @@ export default function Skills() {
   const categoryIcons = [Code2, Database, Wrench, Briefcase];
 
   const categoryColors = [
-    { bg: 'bg-purple-500/10', border: 'border-purple-500/30', text: 'text-purple-600', hover: 'hover:border-purple-500' },
-    { bg: 'bg-blue-500/10', border: 'border-blue-500/30', text: 'text-blue-600', hover: 'hover:border-blue-500' },
+    { bg: 'bg-[#6DD5C4]/10', border: 'border-[#6DD5C4]/30', text: 'text-[#1a7b73]', hover: 'hover:border-[#6DD5C4]' },
+    { bg: 'bg-[#DFF6F0]/80', border: 'border-[#8FE8D9]/60', text: 'text-[#0E2625]', hover: 'hover:border-[#6DD5C4]' },
     { bg: 'bg-pink-500/10', border: 'border-pink-500/30', text: 'text-pink-600', hover: 'hover:border-pink-500' },
     { bg: 'bg-cyan-500/10', border: 'border-cyan-500/30', text: 'text-cyan-600', hover: 'hover:border-cyan-500' },
   ];
@@ -107,10 +107,10 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-20 md:py-32 relative overflow-hidden">
+    <section id="skills" className="py-16 md:py-24 relative overflow-hidden">
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 left-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/4 left-10 w-96 h-96 bg-[#6DD5C4]/5 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-[#DFF6F0]/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -127,7 +127,7 @@ export default function Skills() {
             </span>
             <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
               {t({ en: 'My', fr: 'Mes' })}{' '}
-              <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#DFF6F0] via-[#6DD5C4] to-[#6DD5C4] bg-clip-text text-transparent">
                 {t({ en: 'Toolbox', fr: 'Compétences' })}
               </span>
             </h2>
@@ -183,7 +183,7 @@ export default function Skills() {
                     </div>
 
                     <motion.div
-                      className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-600 to-blue-600"
+                      className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#DFF6F0] via-[#6DD5C4] to-[#6DD5C4]"
                       initial={{ scaleX: 0 }}
                       whileHover={{ scaleX: 1 }}
                       transition={{ duration: 0.3 }}

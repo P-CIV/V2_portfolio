@@ -1,6 +1,6 @@
 import { ChatResponse } from '../types/chat';
 
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000'; // À définir dans .env.local
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000'; 
 
 export class HuggingFaceService {
   private sessionId: string | null = null;
@@ -72,8 +72,6 @@ export class HuggingFaceService {
 
       const data = await response.json();
       this.sessionId = data.session_id;
-      
-      console.log('[ChatBot] Nouvelle session créée:', this.sessionId);
     }
   }
 }

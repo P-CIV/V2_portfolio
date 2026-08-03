@@ -4,6 +4,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from agent import creer_session, envoyer_message
+from portfolio_data import construire_contexte_portfolio
 
 
 # CONFIGURATION Configuration du serveur FastAPI
@@ -65,6 +66,17 @@ def accueil():
         "statut": "ok",
         "message": "Portfolio Chatbot Backend actif et prêt à recevoir des messages !",
         "api": "FastAPI",
+    }
+
+
+@app.get("/portfolio/refresh")
+def refresh_portfolio():
+    """Recharge le contexte du portfolio depuis la source la plus récente."""
+    contexte = construire_contexte_portfolio()
+    return {
+        "statut": "ok",
+        "taille_contexte": len(contexte),
+        "message": "Contexte du portfolio rechargé avec les données les plus récentes.",
     }
 
 
