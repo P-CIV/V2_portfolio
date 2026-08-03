@@ -107,7 +107,7 @@ function App() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className="min-h-screen relative"
+              className="min-h-screen relative overflow-x-hidden max-w-full"
             >
               {/* Background decorations */}
               <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">

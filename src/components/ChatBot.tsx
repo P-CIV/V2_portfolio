@@ -264,7 +264,7 @@ const ChatBot: React.FC = () => {
                        border border-white/10 dark:border-white/5
                        bg-white dark:bg-[#0f1117] text-gray-900 dark:text-white
                        shadow-2xl shadow-black/20 dark:shadow-black/50
-                       sm:static sm:inset-auto sm:w-[370px] sm:h-[600px] sm:rounded-2xl"
+                       sm:static sm:inset-auto sm:w-[370px] sm:h-[600px] sm:rounded-2xl max-w-full"
           >
             {/* ── Header ── */}
             <div className="px-4 py-3 flex items-center justify-between
