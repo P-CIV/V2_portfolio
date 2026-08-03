@@ -20,9 +20,12 @@ export interface ChatResponse {
 export interface CVContent {
   sections: {
     contact: string;
+    about?: string;
     experience: string;
     skills: string;
     education: string;
+    formations?: string;
+    certifications?: string;
     projects: string;
     internship?: string;
   };

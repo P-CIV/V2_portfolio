@@ -96,7 +96,9 @@ def _est_dans_perimetre(message: str) -> bool:
         "contact", "email", "linkedin", "github", "cv", "skill", "skills",
         "technologie", "technologies", "travail", "réalisation", "realisation",
         "presentation", "présentation", "bio", "parle", "parler", "montre",
-        "explique", "qui", "quoi", "comment", "ou", "quand"
+        "explique", "qui", "quoi", "comment", "ou", "quand",
+        "modification", "modifications", "mise", "mise à jour", "maj",
+        "récent", "récente", "dernier", "dernière", "nouveau", "nouvelle"
     ]
 
     return any(mot in texte for mot in mots_cles)

@@ -1,6 +1,8 @@
 import json
+import logging
 from pathlib import Path
 
+logging.basicConfig(level=logging.WARNING)
 BASE_DIR = Path(__file__).resolve().parent.parent
 PORTFOLIO_JSON_CANDIDATES = [
     BASE_DIR / "public" / "cv-content.json",
@@ -371,10 +373,11 @@ def _charger_source_portfolio_json() -> dict | None:
         try:
             with open(chemin, "r", encoding="utf-8") as fichier:
                 donnees = json.load(fichier)
-            if isinstance(donnees, dict):
-                return donnees
-        except Exception:
+        except (json.JSONDecodeError, OSError) as error:
+            logging.warning("Échec de lecture de %s: %s", chemin, error)
             continue
+        if isinstance(donnees, dict):
+            return donnees
     return None
 
 
@@ -382,22 +385,39 @@ def _construire_contexte_depuis_json(donnees: dict) -> str:
     """Crée un contexte de chatbot à partir du JSON public du portfolio."""
     sections = donnees.get("sections", {})
     contact = sections.get("contact", "")
+    about = sections.get("about", "")
     experience = sections.get("experience", "")
     skills = sections.get("skills", "")
     education = sections.get("education", "")
+    formations = sections.get("formations", "")
+    certifications = sections.get("certifications", "")
     projects = sections.get("projects", "")
 
     contexte = "PORTFOLIO DE PASCAL KAMBOU\n\n"
-    contexte += "INFORMATIONS DE CONTACT\n"
-    contexte += f"{contact}\n\n" if contact else ""
-    contexte += "EXPERIENCE\n"
-    contexte += f"{experience}\n\n" if experience else ""
-    contexte += "COMPÉTENCES\n"
-    contexte += f"{skills}\n\n" if skills else ""
-    contexte += "FORMATIONS\n"
-    contexte += f"{education}\n\n" if education else ""
-    contexte += "PROJETS\n"
-    contexte += f"{projects}\n\n" if projects else ""
+    if contact:
+        contexte += "INFORMATIONS DE CONTACT\n"
+        contexte += f"{contact}\n\n"
+    if about:
+        contexte += "À PROPOS\n"
+        contexte += f"{about}\n\n"
+    if experience:
+        contexte += "EXPERIENCE\n"
+        contexte += f"{experience}\n\n"
+    if skills:
+        contexte += "COMPÉTENCES\n"
+        contexte += f"{skills}\n\n"
+    if education:
+        contexte += "FORMATIONS\n"
+        contexte += f"{education}\n\n"
+    if formations:
+        contexte += "DETAILS FORMATIONS\n"
+        contexte += f"{formations}\n\n"
+    if certifications:
+        contexte += "CERTIFICATIONS\n"
+        contexte += f"{certifications}\n\n"
+    if projects:
+        contexte += "PROJETS\n"
+        contexte += f"{projects}\n\n"
     return contexte.strip()
 
 
