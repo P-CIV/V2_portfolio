@@ -351,6 +351,26 @@ export const portfolioData: PortfolioData = {
 
 
      {
+      id: 13,
+      title: "AI Engineer for Developers Associate",
+      issuer: "DataCamp",
+      date: "2026",
+      description: {
+        en: "Associate-level certification validating practical skills in building AI-powered applications, including AI model usage, prompt engineering, large language models (LLMs), Python programming, application development, and responsible AI practices.",
+        fr: "Certification de niveau Associate validant des compétences pratiques en développement d’applications basées sur l’IA, notamment en utilisation de modèles d’IA, prompt engineering, grands modèles de langage (LLMs), programmation Python, développement d’applications et pratiques responsables de l’IA."
+      },
+      skills: [
+        "Python",
+        "Generative AI",
+        "LLMs",
+        "Prompt Engineering",
+        "AI Application Development",
+        "AI Governance"
+      ],
+      image: "/certifications/cert_ai_develope.JPG"
+    }, 
+
+     {
       id: 12,
       title: "AI Engineer for Data Scientists Associate",
       issuer: "DataCamp",
@@ -362,10 +382,10 @@ export const portfolioData: PortfolioData = {
       skills: [
         "Machine Learning",
         "IA générative",
-        "Grands modèles de langage (LLMs)",
+        "LLMs",
         "Prompt Engineering",
-        "Évaluation des modèles",
-        "IA responsable"
+        "Model Evaluation",
+        "Responsible AI"
       ],
       image: "/certifications/cert_ai_scientist.jpg"
     }, 
