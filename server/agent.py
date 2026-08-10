@@ -55,17 +55,21 @@ CONSIGNES STRICTES - TRÈS IMPORTANT
 
 6. JAMAIS inventer d'infos
 
-5. Si l'utilisateur écrit un simple salut, un remerciement ou un au revoir (ex: bonjour, merci, au revoir), réponds poliment et brièvement sans inventer d'informations.
+7. Si l'utilisateur écrit un simple salut, un remerciement ou un au revoir (ex: cc, bonjour, merci, au revoir), réponds poliment et brièvement sans inventer d'informations.
 
-6. Structures tes réponses:
+8. Avant de répondre à toute question, analyse le sens de la demande. Ne te base pas uniquement sur des mots-clés isolés : comprends si la question porte bien sur Pascal Kambou, son portfolio, ses compétences ou son expertise en IA.
+
+9. Les questions liées à l'IA sont bien dans le périmètre si elles concernent Pascal Kambou, son expertise, ses projets ou ses certifications en intelligence artificielle. Même si la formulation est imparfaite, interprète l'intention comme une demande sur Pascal si le contexte de la conversation l'indique.
+
+10. Structures tes réponses:
    - Titres: ## Titre (markdown OK sauf pour contacts)
    - Listes: • Point (bullet OK)
    - Gras: **texte** (gras OK)
    - Mais JAMAIS de [liens](url) - texte + url simplement
 
-7. Réponds UNIQUEMENT à la question posée et ne sort jamais du cadre par exemple de ce portfolio
+9. Réponds UNIQUEMENT à la question posée et ne sort jamais du cadre par exemple de ce portfolio
 
-8. GARDE-FOU DE PÉRIMÈTRE - RÈGLE ABSOLUE:
+10. GARDE-FOU DE PÉRIMÈTRE - RÈGLE ABSOLUE:
    - Si la demande concerne autre chose que Pascal Kambou, son portfolio, ses projets, ses compétences, ses formations, ses certifications, ses contacts ou ses expériences, réponds toujours :
      "Je ne peux parler que de Pascal Kambou, de son portfolio et de ses informations professionnelles."
    - N'essaie jamais de répondre à des sujets hors périmètre.
@@ -85,7 +89,7 @@ def _normaliser_texte(texte: str) -> str:
     return re.sub(r"[^a-zà-ÿ0-9\s]", " ", texte.lower())
 
 
-def _est_dans_perimetre(message: str) -> bool:
+def _est_dans_perimetre(message: str, historique: list[dict] | None = None) -> bool:
     """Vérifie si une demande est bien liée au portfolio de Pascal Kambou."""
     texte = _normaliser_texte(message)
     if not texte.strip():
@@ -100,10 +104,23 @@ def _est_dans_perimetre(message: str) -> bool:
         "presentation", "présentation", "bio", "parle", "parler", "montre",
         "explique", "qui", "quoi", "comment", "ou", "quand",
         "modification", "modifications", "mise", "mise à jour", "maj",
-        "récent", "récente", "dernier", "dernière", "nouveau", "nouvelle"
+        "récent", "récente", "dernier", "dernière", "nouveau", "nouvelle",
+        "expertise", "expert", "ia", "ai", "intelligence artificielle",
+        "machine learning", "deep learning", "nlp", "gpt", "llm"
     ]
 
-    return any(mot in texte for mot in mots_cles)
+    if any(mot in texte for mot in mots_cles):
+        return True
+
+    if historique:
+        historique_text = " ".join(item.get("content", "") for item in historique)
+        historique_text = _normaliser_texte(historique_text)
+        if re.search(r"\b(il|elle|lui|son|sa|ses|leur)\b", texte) and any(keyword in historique_text for keyword in ["pascal", "kambou", "portfolio", "projet", "projets", "compétences", "certifications", "formations"]):
+            return True
+        if any(term in texte for term in ["ia", "ai", "intelligence artificielle", "machine learning", "deep learning", "nlp", "gpt", "llm", "expertise"]) and any(keyword in historique_text for keyword in ["pascal", "kambou", "portfolio", "assistant"]):
+            return True
+
+    return False
 
 
 def _est_salutation_ou_courtoisie(message: str) -> bool:
@@ -159,7 +176,7 @@ def envoyer_message(historique: list, message_utilisateur: str) -> tuple[str, li
         ]
         return reponse, nouvel_historique
 
-    if not _est_dans_perimetre(message_utilisateur):
+    if not _est_dans_perimetre(message_utilisateur, historique_clean):
         reponse = "Je ne peux parler que de Pascal Kambou, de son portfolio et de ses informations professionnelles."
         nouvel_historique = historique_clean + [
             {"role": "user", "content": message_utilisateur},
@@ -180,7 +197,7 @@ def envoyer_message(historique: list, message_utilisateur: str) -> tuple[str, li
         completion = client.chat.completions.create(
             model=GROQ_MODEL,
             messages=messages,
-            temperature=0.5,
+            temperature=0.4,
             max_tokens=580,
             top_p=0.95,
         )
