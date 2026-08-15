@@ -1,10 +1,12 @@
 import os
 import re
+
 from dotenv import load_dotenv
 from groq import Groq
+
 from portfolio_data import construire_contexte_portfolio
 
-# Charger les variables d'environnement depuis .env
+# Charge les variables d'environnement 
 load_dotenv()
 
 
@@ -12,13 +14,12 @@ load_dotenv()
 
 
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
-GROQ_MODEL = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")
+GROQ_MODEL = os.environ.get("GROQ_MODEL", "openai/gpt-oss-120b")
 
 # Client Groq
 client = Groq(api_key=GROQ_API_KEY)
 
 def get_system_prompt() -> str:
-    """Construit le prompt système avec les données les plus récentes du portfolio."""
     contexte_portfolio = construire_contexte_portfolio()
     return f"""Tu es l'assistant personnel du portfolio de Pascal Kambou.
 
@@ -198,14 +199,20 @@ def envoyer_message(historique: list, message_utilisateur: str) -> tuple[str, li
             model=GROQ_MODEL,
             messages=messages,
             temperature=0.4,
-            max_tokens=580,
-            top_p=0.95,
+            max_completion_tokens=1024,
+            reasoning_effort="low",
+            top_p=1,
+            
         )
-        
+
         texte_reponse = completion.choices[0].message.content
-        
+
     except Exception as e:
-        return f" Erreur d'appel API Groq: {str(e)}", historique_clean
+        # Ne pas intercepter les interruptions système
+        if isinstance(e, (KeyboardInterrupt, SystemExit)):
+            raise
+        # Utilise la conversion explicite dans la f-string
+        return f" Erreur d'appel API Groq: {e!s}", historique_clean
     
     # Mise à jour de l'historique
     nouvel_historique = historique_clean + [
