@@ -7,7 +7,7 @@ from agent import creer_session, envoyer_message
 from portfolio_data import construire_contexte_portfolio
 
 
-# CONFIGURATION Configuration du serveur FastAPI
+# Configuration du serveur FastAPI
 
 app = FastAPI(
     title="Portfolio Chatbot API",
@@ -15,22 +15,20 @@ app = FastAPI(
     version="1.0.0",
 )
 
-# CORS — autorise le frontend à communiquer
+# CORS 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        "https://www.pascalkambou.tech",
         "http://localhost:3000",
         "http://localhost:3001",
-        "http://localhost:5173",      # Vite
-        "http://localhost:8082",
-        "http://localhost:8083",
+        "http://localhost:5173",
         "http://127.0.0.1:5173",
         "http://127.0.0.1:5500",
-        "*",  # À remplacer par le domaine réel en production
     ],
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "DELETE", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization"],
 )
 
 # Stockage en mémoire des sessions
